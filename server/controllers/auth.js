@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
 /* Register User */
-
 export const register = async (req, res) => {
   try {
     const {
@@ -39,8 +38,8 @@ export const register = async (req, res) => {
   }
 };
 
-/* Login In*/
-const login = async (req, res) => {
+/* Login In */
+export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email: email });
