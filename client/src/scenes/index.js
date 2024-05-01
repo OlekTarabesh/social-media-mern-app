@@ -1,4 +1,4 @@
-export * from "./profilePage/ProfilePage";
-export * from "./loginPage/LoginPage";
-export * from "./homePage/HomePage";
+export * from "./profilePage/index";
+export * from "./loginPage/index";
+export * from "./homePage/index";
 export * from "./navbar/Navbar";

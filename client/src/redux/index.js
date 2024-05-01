@@ -34,9 +34,8 @@ export const authSlice = createSlice({
     },
     setPost: (state, { payload }) => {
       const updatedPost = state.posts.map((post) => {
-        if (post._id === payload.post_id) {
-          return payload.post_id;
-        } else return post;
+        if (post._id === payload.post._id) return payload.post;
+        return post;
       });
       state.posts = updatedPost;
     },

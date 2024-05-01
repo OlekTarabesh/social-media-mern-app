@@ -32,7 +32,7 @@ export const getUserFriends = async () => {
 };
 
 /* Update */
-export const addRemoveFrriend = async () => {
+export const addRemoveFrriend = async (req, res) => {
   try {
     const { id, friendId } = req.params;
     const user = await User.findById(id);
@@ -40,7 +40,7 @@ export const addRemoveFrriend = async () => {
 
     if (user.friends.includes(friendId)) {
       user.friends = user.friends.filter((id) => id !== friendId);
-      friend.friends = friend.friend.filter((id) => id !== id);
+      friend.friends = friend.friends.filter((id) => id !== id);
     } else {
       user.friends.push(friendId);
       friend.friends.push(id);
@@ -61,6 +61,6 @@ export const addRemoveFrriend = async () => {
 
     res.status(200).json(formattedFriends);
   } catch (err) {
-    res.status(404).jason({ message: err.message });
+    res.status(404).json({ message: err.message });
   }
 };
