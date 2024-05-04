@@ -5,7 +5,8 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 
 import { themeSettings } from "./theme";
-import { HomePage, LoginPage, ProfilePage } from "scenes";
+import { HomePage, LoginPage } from "scenes";
+import ProfilePage from "scenes/profilePage/ProfilePage";
 
 function App() {
   const mode = useSelector(({ mode }) => mode);
