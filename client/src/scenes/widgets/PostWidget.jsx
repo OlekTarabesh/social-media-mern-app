@@ -29,7 +29,7 @@ const PostWidget = ({
   const loggedInUserId = useSelector((state) => state.user._id);
   const isLiked = Boolean(likes[loggedInUserId]);
   const likeCount = Object.keys(likes).length;
-
+  console.log(comments, "comments");
   const { palette } = useTheme();
   const main = palette.neutral.main;
   const primary = palette.primary.main;
@@ -47,6 +47,15 @@ const PostWidget = ({
     dispatch(setPost({ post: updatedPost }));
   };
 
+  const comentsLength = () => {
+    if (!comments.length) return;
+    return comments.length;
+  };
+
+  const isOpenComments = () => {
+    if (!comments.length) return;
+    setIsComments((prev) => !prev);
+  };
   return (
     <WidgetWrapper m="2rem 0">
       <Friend
@@ -81,10 +90,10 @@ const PostWidget = ({
           </FlexBetween>
 
           <FlexBetween gap="0.3rem">
-            <IconButton onClick={() => setIsComments(!isComments)}>
+            <IconButton onClick={isOpenComments}>
               <ChatBubbleOutlineOutlined />
             </IconButton>
-            <Typography>{comments.length}</Typography>
+            <Typography>{comentsLength()}</Typography>
           </FlexBetween>
         </FlexBetween>
 
